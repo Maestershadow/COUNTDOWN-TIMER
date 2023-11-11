@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap');
+
+
+:root {
+  /* Colors */
+  --clr-grayish-blue: hsl(237, 18%, 59%);
+  --clr-soft-red: hsl(345, 95%, 68%);
+
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-dark-desaturated-blue: hsl(236, 21%, 26%);
+  --clr-dark-blue: hsl(235, 16%, 14%);
+  --clr-very-dark-blue: hsl(234, 17%, 12%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img
+{
+ width: 100%;
+ display: block;
+}
+
+
+body {
+  font-family: 'Red Hat Text', sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: url('/images/bg-stars.svg');
+  background-color: var(--clr-dark-blue);
+  
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  margin-top: 4rem;
+}
+
+h1 {
+  font-size: 0.875rem;
+  color: var(--clr-white);
+  letter-spacing: 0.3rem;
+}
+
+.hill-img
+{
+  height: 10rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+  background: url('/images/pattern-hills.svg');
+}
+
+
+.timer-div {
+  display: flex;
+  gap: clamp(0.2rem,2vw, 1.5rem);
+  margin-top: 5rem;
+}
+
+.timer-card {
+  background-color: var(--clr-dark-desaturated-blue);
+  border-radius: 0.5rem;
+  color: var(--clr-soft-red);
+  font-weight: 700;
+  font-size:clamp(2rem,5vw, 5rem);
+  margin: 0;
+  width: clamp(4rem,10vw, 10rem);
+  height: auto;
+  display: flex;
+  place-content: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+  box-shadow: 0px 10px var(--clr-very-dark-blue);
+}
+
+.timer-card::before {
+  content: "";
+  background-color: var(--clr-very-dark-blue);
+  position: absolute;
+  left: 0;
+  height: 1rem;
+  width: 0.5rem;
+  border-radius:0 0.75rem 0.75rem 0   ;
+  background-color: var(--clr-very-dark-blue);
+}
+
+.timer-card::after {
+  content: "";
+  background-color: var(--clr-very-dark-blue);
+  position: absolute;
+  right: 0;
+  height: 1rem;
+  width: 0.5rem;
+  border-radius:  0.75rem 0 0  0.75rem;
+  background-color: var(--clr-very-dark-blue);
+}
+
+.timer-divider
+{
+  opacity: 0.6;
+  width: 100%;
+  
+  background-color:var(--clr-very-dark-blue);
+  height: 1px;
+  position: absolute;
+  top: 50%;
+}
+
+.timer-card-container
+{
+  position: relative;
+  height: clamp(4rem, 10vw, 10rem);
+  width: fit-content;
+  display: flex;
+}
+
+.timer-main-container
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--clr-grayish-blue);
+  font-weight: 400;
+  font-size: 0.8rem;
+
+}
+
+.socio-icons
+{
+  margin-top: 3rem;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 1.5rem;
+}
