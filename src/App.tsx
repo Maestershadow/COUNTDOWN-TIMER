@@ -24,12 +24,21 @@ function App() {
   };
 
   const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining);
+  const [isAnimated, setIsAnimated] = useState({
+    days: false,
+    hours: false,
+    minutes: false,
+    seconds: true
+  })
 
   useEffect(() => {
     const timerId = setInterval(() => {
-      setTimeRemaining(calculateTimeRemaining());
+      const value = calculateTimeRemaining(); 
+      setTimeRemaining(value);
+
     }, 1000);
     return () => clearInterval(timerId);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -38,10 +47,10 @@ function App() {
         <h1>WE'RE LAUNCHING SOON</h1>
 
         <div className='timer-div'>
-          <TimerCard tail={"DAYS"} time={`${timeRemaining.days}`.length === 1 ? `0${timeRemaining.days}` : `${timeRemaining.days}`} />
-          <TimerCard tail={"HOURS"} time={`${timeRemaining.hours}`.length === 1 ? `0${timeRemaining.hours}` : `${timeRemaining.hours}`} />
-          <TimerCard tail={"MINUTES"} time={`${timeRemaining.minutes}`.length === 1 ? `0${timeRemaining.minutes}` : `${timeRemaining.minutes}`} />
-          <TimerCard tail={"SECONDS"} time={`${timeRemaining.seconds}`.length === 1 ? `0${timeRemaining.seconds}` : `${timeRemaining.seconds}`} />
+          <TimerCard isAnimated={isAnimated.days} tail={"DAYS"} time={`${timeRemaining.days}`.length === 1 ? `0${timeRemaining.days}` : `${timeRemaining.days}`} />
+          <TimerCard isAnimated={isAnimated.hours} tail={"HOURS"} time={`${timeRemaining.hours}`.length === 1 ? `0${timeRemaining.hours}` : `${timeRemaining.hours}`} />
+          <TimerCard isAnimated={isAnimated.minutes} tail={"MINUTES"} time={`${timeRemaining.minutes}`.length === 1 ? `0${timeRemaining.minutes}` : `${timeRemaining.minutes}`} />
+          <TimerCard isAnimated={isAnimated.seconds} tail={"SECONDS"} time={`${timeRemaining.seconds}`.length === 1 ? `0${timeRemaining.seconds}` : `${timeRemaining.seconds}`} />
         </div>
       </main>
       <div className='hill-img'>
